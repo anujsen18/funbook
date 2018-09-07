@@ -1,0 +1,34 @@
+.navbar-default {
+    background: #6db33f;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+
+#taball {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#taball td, #taball th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#taball tr:nth-child(even){background-color: #f2f2f2;}
+
+#taball tr:hover {background-color: #ddd;}
+
+#taball th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}

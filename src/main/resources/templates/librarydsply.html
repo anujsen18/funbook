@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <title>Book List</title>
+    <th:block th:include="common/header"></th:block>
+</head>
+<body>
+<table align="center"><tr align="center"> <td align="center">
+
+	<div>
+	<form class="form-inline" style="margin:20px 20px 20px 20px" action="#" th:action="@{/book/getbytitle/}" th:object="${book}" method="post">
+		<div class="form-group" align="center">
+		<label for="titletosearch" style="margin-right:5px">Title:</label>
+		<input type="text" th:field="*{title}" />
+		<button type="submit">Search</button>
+		</div>
+	</form>
+	</div>
+	</td>
+	 <td>
+	<div>
+	<form class="form-inline" style="margin:20px 20px 20px 20px" action="#" th:action="@{/book/getbookedit/}"  method="get">
+		<div class="form-group" align="center">
+		<button type="submit">Insert New Book </button>
+		</div>
+	</form>
+	</div>
+	</td>
+	</tr>
+</table>	
+
+<div class="container" align="center">
+==================================================
+</div>
+<div class="container">
+    <div th:if="${not #lists.isEmpty(books)}">
+        <h2>All Books in Our Stock</h2>
+        <table class="table table-striped" id="taball" dt:table="true" > 
+         <thead>
+            <tr>
+                
+                <th>Title</th>
+                <th>Author</th>
+                <th>Price</th>
+              
+            </tr>
+         </thead>
+          <tbody>
+            <tr th:each="book : ${books}" >
+                <td th:hidden="${book.id}">Id</td>
+                <td th:text="${book.title}">Name</td>
+                <td th:text="${book.author}">Description</td>
+                <td th:text="${book.price}">Price </td>
+           
+             
+                <td><a th:href="${'/book/delete/' +book.id}" class="btn btn-danger">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+		<!-- <form class="form-inline" style="margin:20px 20px 20px 20px" id="bookForm">
+			<div class="form-group">
+				<label for="titletosearch" style="margin-right:5px">Title:</label>
+			<input th:text="${book.title}" placeholder="Book Title"/>
+				
+			</div>
+		
+		   <input value="Search" th:attr="value=${'/book/getbytitle/' +titletosearch}"/>
+			
+		</form> -->
+	
+
+</body>
+</html>
